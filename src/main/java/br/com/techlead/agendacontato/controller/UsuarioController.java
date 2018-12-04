@@ -21,7 +21,7 @@ import br.com.techlead.agendacontato.utils.HttpReturnMessage;
 import br.com.techlead.agendacontato.utils.RestUtils;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/usuario")
 public class UsuarioController extends RestUtils<IUsuarioService> {
 
 	@GetMapping("{id}")
