@@ -1,15 +1,13 @@
 package br.com.techlead.agendacontato;
 
-import java.util.TimeZone;
-
-import javax.annotation.PostConstruct;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
 
 @SpringBootApplication
-@EnableResourceServer
+/*@EnableResourceServer*/
 public class AgendacontatoApplication {
 
 	@PostConstruct

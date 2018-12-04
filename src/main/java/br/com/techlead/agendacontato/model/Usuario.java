@@ -41,7 +41,7 @@ public class Usuario {
 	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "usuarioperfil", joinColumns =
+    @JoinTable(name = "UsuarioPerfil", joinColumns =
     @JoinColumn(name = "idUsuario"), inverseJoinColumns =
     @JoinColumn(name = "idPerfil"))
     private List<Perfil> perfis;

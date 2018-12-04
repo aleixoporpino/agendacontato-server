@@ -21,7 +21,7 @@ import br.com.techlead.agendacontato.utils.HttpReturnMessage;
 import br.com.techlead.agendacontato.utils.RestUtils;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/user")
 public class UsuarioController extends RestUtils<IUsuarioService> {
 
 	@GetMapping("{id}")
@@ -34,7 +34,7 @@ public class UsuarioController extends RestUtils<IUsuarioService> {
 		return service.findAll();
 	}
 
-	@GetMapping("porlogin/{login}")
+	@GetMapping("login/{login}")
 	Usuario findByLogin(@PathVariable("login") String login) {
 		return this.service.findOneByLogin(login);
 	}
@@ -44,7 +44,7 @@ public class UsuarioController extends RestUtils<IUsuarioService> {
 		return this.service.findByLoginContains(login);
 	}
 
-	@GetMapping("porloginsenha/{login}/{senha}")
+	@GetMapping("loginpassword/{login}/{senha}")
 	Usuario findByLoginSenha(@PathVariable("login") String login, @PathVariable("senha") String senha) {
 		return this.service.findByLoginSenha(login, senha);
 	}
@@ -54,7 +54,7 @@ public class UsuarioController extends RestUtils<IUsuarioService> {
 		return this.service.findByEmail(email);
 	}
 
-	@PostMapping(path = "/salvar", consumes = "application/json", produces = "application/json")
+	@PostMapping(path = "/save", consumes = "application/json", produces = "application/json")
 	public @ResponseBody ResponseEntity<Object> save(@RequestBody Usuario usuario) {
 		Collection<Usuario> usuarios = findAll();
 		for (Usuario u : usuarios) {

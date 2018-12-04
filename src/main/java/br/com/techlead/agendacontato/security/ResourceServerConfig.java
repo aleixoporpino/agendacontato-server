@@ -7,16 +7,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
-* Classe de configuração da autenticação via OAuth.
-*
-* @author  José Aleixo Araujo Porpino Filho
-* @version 1.0
-* @since   21/01/2018 
-*/
-@EnableResourceServer
+ * Classe de configuração da autenticação via OAuth.
+ *
+ * @author José Aleixo Araujo Porpino Filho
+ * @version 1.0
+ * @since 21/01/2018
+ */
+/*@EnableResourceServer*/
 @Configuration
 public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 
@@ -28,14 +27,24 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	http.csrf().disable()
-        .authorizeRequests();
-    	http.requestMatchers()
-			.antMatchers("/", "/registro/**", "/oauth/**","/oauth/token","/oauth/authorize","/v2/**","/api/swagger-ui.html","/swagger-ui.html",
-					"/swagger-resources/**","/webjars/**","/api/v2/**")
-			.and()
-		.authorizeRequests()
-			.antMatchers("/api/**").authenticated();
+        http.csrf().disable()
+                .authorizeRequests();
+        http.requestMatchers()
+                .antMatchers("/",
+                        "/registro/**",
+                        "/register/**",
+                        "/oauth/**",
+                        "/oauth/token",
+                        "/oauth/authorize",
+                        "/v2/**",
+                        "/api/swagger-ui.html",
+                        "/swagger-ui.html",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/api/v2/**")
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/**").authenticated();
     }
 
 

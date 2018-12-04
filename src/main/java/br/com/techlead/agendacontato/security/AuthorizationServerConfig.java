@@ -1,3 +1,4 @@
+/*
 package br.com.techlead.agendacontato.security;
 
 
@@ -10,13 +11,15 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
+*/
 /**
 * Classe de configuração do servidor de autorização do servidor OAuth.
 *
 * @author  José Aleixo Araujo Porpino Filho
 * @version 1.0
 * @since   19/01/2018 
-*/
+*//*
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -48,3 +51,4 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.authenticationManager(authenticationManager);
     }
 }
+*/

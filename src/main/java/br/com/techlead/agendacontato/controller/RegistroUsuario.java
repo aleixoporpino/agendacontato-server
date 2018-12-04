@@ -17,22 +17,22 @@ import br.com.techlead.agendacontato.utils.HttpReturnMessage;
 import br.com.techlead.agendacontato.utils.RestUtils;
 
 @RestController
-@RequestMapping("/registro")
+@RequestMapping("/register")
 public class RegistroUsuario extends RestUtils<IUsuarioService> {
 
-	@PostMapping(path = "/salvar", consumes = "application/json", produces = "application/json")
+	@PostMapping(path = "/save", consumes = "application/json", produces = "application/json")
 	public @ResponseBody ResponseEntity<Object> save(@RequestBody Usuario usuario) {
 		Collection<Usuario> usuarios = service.findAll();
 		for (Usuario u : usuarios) {
 			if (u.getLogin().equals(usuario.getLogin())) {
-				return new ResponseEntity<Object>(
+				return new ResponseEntity<>(
 						new HttpReturnMessage(1, "Login já existente, por favor escolha outro.", usuario),
 						HttpStatus.OK);
 			}
 		}
 
 		this.service.salvar(usuario);
-		return new ResponseEntity<Object>(new HttpReturnMessage(0, HttpMessageEnum.SUCCESS_SAVE.getMessage(), usuario),
+		return new ResponseEntity<>(new HttpReturnMessage(0, HttpMessageEnum.SUCCESS_SAVE.getMessage(), usuario),
 				HttpStatus.OK);
 	}
 }

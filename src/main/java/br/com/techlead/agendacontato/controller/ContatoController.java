@@ -58,11 +58,12 @@ public class ContatoController extends RestUtils<IContatoService>{
 	
 	@GetMapping("porusuario/{idUsuario}")
 	Collection<Contato> findByEmail(@PathVariable("idUsuario") int idUsuario) {
-		return this.service.findByUsuario(new Usuario(idUsuario));
+		return this.service.findByUsuario(new Usuario(1));
 	}
 
 	@PostMapping(path = "/salvar", consumes = "application/json", produces = "application/json")
 	public @ResponseBody ResponseEntity<HttpReturnMessage> save(@RequestBody Contato contato) {
+		contato.setUsuario(new Usuario(1));
 		this.service.salvar(contato);
 		httpReturnMessage = new HttpReturnMessage(0, HttpMessageEnum.SUCCESS_SAVE.getMessage(), contato);
 	    return new ResponseEntity<HttpReturnMessage>(httpReturnMessage, HttpStatus.OK);
